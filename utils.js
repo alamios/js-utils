@@ -267,45 +267,45 @@ function setContentSelection(target, text) {
     }
 }
 
-String.prototype.pad = (length, char=" ") => {
+String.prototype.pad = function (length, char=" ") {
     var str = this;
     while (str.length < length) 
         str = char + str;
     return str;
 };
 
-Number.prototype.pad = (length, char=0) => {
+Number.prototype.pad = function (length, char=0) {
     return this.toString().pad(length, char);
 };
 
-Date.prototype.toCommonDateString = (sep="/") => {
+Date.prototype.toCommonDateString = function (sep="/") {
     return this.getFullYear().pad(4) + 
     sep + (this.getMonth()+1).pad(2) +
     sep + this.getDate().pad(2);
 };
 
-Date.prototype.toCommonTimeString = (sep=":") => {
+Date.prototype.toCommonTimeString = function (sep=":") {
     return this.getHours().pad(2) +
     sep + this.getMinutes().pad(2) +
     sep + this.getSeconds().pad(2);
 };
 
-Date.prototype.toCommonString = (datesep="/", timesep=":", strsep=" ") => {
+Date.prototype.toCommonString = function (datesep="/", timesep=":", strsep=" ") {
     return this.toCommonDateString(datesep) + strsep + this.toCommonTimeString(timesep);
 };
 
-Date.prototype.toCommonUTCDateString = (sep="/") => {
+Date.prototype.toCommonUTCDateString = function (sep="/") {
     return this.getUTCFullYear().pad(4) + 
     sep + (this.getUTCMonth()+1).pad(2) +
     sep + this.getUTCDate().pad(2);
 };
 
-Date.prototype.toCommonUTCTimeString = (sep=":") => {
+Date.prototype.toCommonUTCTimeString = function (sep=":") {
     return this.getUTCHours().pad(2) +
     sep + this.getUTCMinutes().pad(2) +
     sep + this.getUTCSeconds().pad(2);
 };
 
-Date.prototype.toCommonUTCString = function(datesep="/", timesep=":", strsep=" ") {
+Date.prototype.toCommonUTCString = function (datesep="/", timesep=":", strsep=" ") {
     return this.toCommonUTCDateString(datesep) + strsep + this.toCommonUTCTimeString(timesep);
 };
