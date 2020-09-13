@@ -1,10 +1,6 @@
 MIT License
 
-<<<<<<< HEAD
 Copyright (c) 2019-2020 alamios
-=======
-Copyright (c) 2020 alamios
->>>>>>> 63f74adacd89071ae9ed26c4863dee1a66ede61f
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +18,4 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-<<<<<<< HEAD
 SOFTWARE.
-=======
-SOFTWARE.
->>>>>>> 63f74adacd89071ae9ed26c4863dee1a66ede61f
