@@ -1,6 +1,5 @@
 
 var someutils = (function() {
-
     return {    
 
         insertHTML: function(content, target, replace=true) {
