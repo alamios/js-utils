@@ -49,6 +49,14 @@ function urlExists(url) {
     return http.status != 404;
 }
 
+function loadCSS(url){ 
+    var link = document.createElement("link");
+    link.setAttribute("rel", "stylesheet");
+    link.setAttribute("type", "text/css");
+    link.setAttribute("href", url);
+    document.head.appendChild(link);
+}
+
 function getFavicon1(url) {
     return url.match(/^https?\:\/\/([^\/?#]+)/)[0] + "/favicon.ico";
 }

@@ -1,5 +1,5 @@
-# js-utils
-JavaScript utilities
+# someutils-js
+A collection of JavaScript utilities
 
 ## License
 <pre><code>Licensed under the <a href="https://opensource.org/licenses/MIT">MIT</a> license.
