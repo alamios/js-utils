@@ -4,3 +4,4 @@ rm -r dist
 mkdir dist
 cp -r src/. dist
 git add dist/.
+exit 0
