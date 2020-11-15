@@ -122,18 +122,10 @@ var someutils = (function() {
         },
     
         storePersistent: function(key, value, expiration) {
-            if (localStorage) {
+            if (localStorage)
                 localStorage.setItem(key, value);
-            } 
-            else {
-                var cookie = key + "=" + value;
-                if (expiration == undefined)
-                    expiration = 365*24*60*60*1000;
-                var d = new Date();
-                d.setTime(d.getTime() + expiration);
-                cookie += ";" + "expires=" + d.toUTCString();
-                document.cookie = cookie;
-            }
+            else
+                this.setCookie(key, value, expiration);
         },
     
         retrievePersistent: function(key) {
@@ -171,6 +163,16 @@ var someutils = (function() {
                 return cookies.split("=")[1];
             }
             return undefined;
+        },
+
+        setCookie: function(key, value, expiration) {
+            var cookie = key + "=" + value;
+            if (expiration == undefined)
+                expiration = 365*24*60*60*1000;
+            var d = new Date();
+            d.setTime(d.getTime() + expiration);
+            cookie += ";" + "expires=" + d.toUTCString();
+            document.cookie = cookie;
         },
     
         openFullscreen: function() {
