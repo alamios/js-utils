@@ -9,5 +9,6 @@
     "name": "alamios",
     "email": "alamios@pm.me",
     "url": "https://alamios.es"
-  }
+  },
+  "private": true
 }
