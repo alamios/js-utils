@@ -1,7 +1,7 @@
 {
   "name": "someutils-js",
   "description": "A collection of JavaScript utilities",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "homepage": "https://github.com/alamios/someutils-js",
   "repository": "github:alamios/someutils-js",
   "license": "MIT",

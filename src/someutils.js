@@ -284,6 +284,44 @@ var someutils = (function() {
             for (var i=0; i<syllables; i++)
                 name += genSyl();
             return name;
+        },
+
+        parseCommonDate: function(strDate, dateSep="/") {
+            var parts = strDate.split(dateSep);
+            var date = new Date();
+            date.setFullYear(parseInt(parts[0]));
+            date.setMonth(parseInt(parts[1])-1);
+            date.setDate(parseInt(parts[2]));
+            return date;
+        },
+
+        parseReversedDate: function(strDate, dateSep="/") {
+            var parts = strDate.split(dateSep);
+            var date = new Date();
+            date.setDate(parseInt(parts[0]));
+            date.setMonth(parseInt(parts[1])-1);
+            date.setFullYear(parseInt(parts[2]));
+            return date;
+        },
+
+        parseCommonDatetime: function(strDate, dateSep="/", timeSep=":", strSep=" ") {
+            var parts1 = strDate.split(strSep);
+            var parts2 = parts1[1].split(timeSep);
+            var date = this.parseCommonDate(parts1[0], dateSep)
+            date.setHours(parseInt(parts2[0]));
+            date.setMinutes(parseInt(parts2[1]));
+            date.setSeconds(parseInt((parts2[2]) ? parts2[2] : 0));
+            return date;
+        },
+
+        parseReversedDatetime: function(strDate, dateSep="/", timeSep=":", strSep=" ") {
+            var parts1 = strDate.split(strSep);
+            var parts2 = parts1[1].split(timeSep);
+            var date = this.parseReversedDate(parts1[0], dateSep)
+            date.setHours(parseInt(parts2[0]));
+            date.setMinutes(parseInt(parts2[1]));
+            date.setSeconds(parseInt((parts2[2]) ? parts2[2] : 0));
+            return date;
         }
     };
 })();
