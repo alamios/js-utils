@@ -292,6 +292,9 @@ var someutils = (function() {
             date.setFullYear(parseInt(parts[0]));
             date.setMonth(parseInt(parts[1])-1);
             date.setDate(parseInt(parts[2]));
+            date.setHours(0);
+            date.setMinutes(0);
+            date.setSeconds(0);
             return date;
         },
 
@@ -301,6 +304,9 @@ var someutils = (function() {
             date.setDate(parseInt(parts[0]));
             date.setMonth(parseInt(parts[1])-1);
             date.setFullYear(parseInt(parts[2]));
+            date.setHours(0);
+            date.setMinutes(0);
+            date.setSeconds(0);
             return date;
         },
 
