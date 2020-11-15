@@ -289,6 +289,12 @@ Date.prototype.toCommonDateString = function (sep="/") {
     sep + this.getDate().pad(2);
 };
 
+Date.prototype.toReversedDateString = function (sep="/") {
+    return this.getDate().pad(2) +
+    sep + (this.getMonth()+1).pad(2) +
+    sep + this.getFullYear().pad(4);
+};
+
 Date.prototype.toCommonTimeString = function (sep=":") {
     return this.getHours().pad(2) +
     sep + this.getMinutes().pad(2) +
@@ -299,10 +305,20 @@ Date.prototype.toCommonString = function (datesep="/", timesep=":", strsep=" ") 
     return this.toCommonDateString(datesep) + strsep + this.toCommonTimeString(timesep);
 };
 
+Date.prototype.toReversedString = function (datesep="/", timesep=":", strsep=" ") {
+    return this.toCommonTimeString(timesep) + strsep + this.toReversedDateString(datesep);
+};
+
 Date.prototype.toCommonUTCDateString = function (sep="/") {
     return this.getUTCFullYear().pad(4) + 
     sep + (this.getUTCMonth()+1).pad(2) +
     sep + this.getUTCDate().pad(2);
+};
+
+Date.prototype.toReversedUTCDateString = function (sep="/") {
+    return this.getUTCDate().pad(2) +
+    sep + (this.getUTCMonth()+1).pad(2) +
+    sep + this.getUTCFullYear().pad(4);
 };
 
 Date.prototype.toCommonUTCTimeString = function (sep=":") {
@@ -313,4 +329,54 @@ Date.prototype.toCommonUTCTimeString = function (sep=":") {
 
 Date.prototype.toCommonUTCString = function (datesep="/", timesep=":", strsep=" ") {
     return this.toCommonUTCDateString(datesep) + strsep + this.toCommonUTCTimeString(timesep);
+};
+
+Date.prototype.toReversedUTCString = function (datesep="/", timesep=":", strsep=" ") {
+    return this.toCommonUTCTimeString(timesep) + strsep + this.toReversedUTCDateString(datesep);
+};
+
+Date.prototype.toShortCommonDateString = function (sep="/") {
+    return (this.getMonth()+1).pad(2) +
+    sep + this.getDate().pad(2);
+};
+
+Date.prototype.toShortReversedDateString = function (sep="/") {
+    return this.getDate().pad(2) +
+    sep + (this.getMonth()+1).pad(2);
+};
+
+Date.prototype.toShortCommonTimeString = function (sep=":") {
+    return this.getHours().pad(2) +
+    sep + this.getMinutes().pad(2);
+};
+
+Date.prototype.toShortCommonString = function (datesep="/", timesep=":", strsep=" ") {
+    return this.toShortCommonDateString(datesep) + strsep + this.toShortCommonTimeString(timesep);
+};
+
+Date.prototype.toShortReversedString = function (datesep="/", timesep=":", strsep=" ") {
+    return this.toShortCommonTimeString(timesep) + strsep + this.toShortReversedDateString(datesep);
+};
+
+Date.prototype.toShortCommonUTCDateString = function (sep="/") {
+    return (this.getUTCMonth()+1).pad(2) +
+    sep + this.getUTCDate().pad(2);
+};
+
+Date.prototype.toShortReversedUTCDateString = function (sep="/") {
+    return this.getUTCDate().pad(2) +
+    sep + (this.getUTCMonth()+1).pad(2);
+};
+
+Date.prototype.toShortCommonUTCTimeString = function (sep=":") {
+    return this.getUTCHours().pad(2) +
+    sep + this.getUTCMinutes().pad(2);
+};
+
+Date.prototype.toShortCommonUTCString = function (datesep="/", timesep=":", strsep=" ") {
+    return this.toShortCommonUTCDateString(datesep) + strsep + this.toShortCommonUTCTimeString(timesep);
+};
+
+Date.prototype.toShortReversedUTCString = function (datesep="/", timesep=":", strsep=" ") {
+    return this.toShortCommonUTCTimeString(timesep) + strsep + this.toShortReversedUTCDateString(datesep);
 };
