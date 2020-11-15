@@ -12,6 +12,6 @@
   },
   "private": true,
     "scripts": {
-      "postinstall": "mkdir -p dist && cp -r src/. dist && for fname in dist/*.js; do terser -c -m -o \"dist/$(basename $fname .js).min.js\" \"$fname\"; done"
+      "postinstall": "rm -r -f dist && mkdir -p dist && cp -r src/. dist && for fname in dist/*.js; do terser -c -m -o \"dist/$(basename $fname .js).min.js\" \"$fname\"; done"
   }
 }
