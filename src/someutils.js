@@ -268,6 +268,20 @@ var someutils = (function() {
             if (elems != null)
                 for (var i=0; i<elems.length; i++)
                     elems[i].innerHTML = (Array.isArray(text)) ? text[i] : text;
+        },
+        
+        generateName: function(syllables, vocals="aeiou", consonants="qwrtypsdfghjklñzxcvbnm", thirdConsRate=0.2) {
+            var name = "";
+            var genSyl = function() {
+                var syl = consonants.charAt(parseInt(Math.random() * consonants.length))
+                syl += vocals.charAt(parseInt(Math.random() * vocals.length))
+                if (Math.random() < thirdConsRate)
+                    syl += consonants.charAt(parseInt(Math.random() * consonants.length))
+                return syl
+            }
+            for (var i=0; i<syllables; i++)
+                name += genSyl();
+            return name;
         }
     };
 })();
