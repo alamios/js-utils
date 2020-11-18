@@ -372,6 +372,10 @@ var someutils = (function() {
     };
 })();
 
+String.prototype.insertAt = function(string, index) {   
+    return this.substring(0, index) + string + this.substring(index);
+}
+
 String.prototype.pad = function (length, char=" ") {
     var str = this;
     while (str.length < length) 
