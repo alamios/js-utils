@@ -475,6 +475,55 @@ var dateutils = (function() {
     };
 })();
 
+var uiutils = (function() {
+    return {
+
+        fadeIn: function(elem, interval, step, display="block") {
+            elem.style.opacity = '0';
+            elem.style.display = display;
+            var fin = setInterval(function () {
+                if (elem.style.opacity < 1)
+                    elem.style.opacity = parseFloat(elem.style.opacity) + step;
+                else
+                    clearInterval(fin);
+            }, interval);
+        },
+        
+        fadeOut: function(elem, interval, step) {
+            elem.style.opacity = '1';
+            var fout = setInterval(function () {
+                if (parseFloat(elem.style.opacity) > 0)
+                    elem.style.opacity = parseFloat(elem.style.opacity) - step;
+                else {
+                    clearInterval(fout);
+                    elem.style.display = "none";
+                }
+            }, interval);
+        },
+
+        fade: function(prev, next, interval, step, display="block") {
+            prev.style.opacity = '1';
+            var fout = setInterval(function () {
+                if (parseFloat(prev.style.opacity) > 0)
+                    prev.style.opacity = parseFloat(prev.style.opacity) - step;
+                else {
+                    clearInterval(fout);
+                    prev.style.display = "none";
+                    next.style.opacity = '0';
+                    next.style.display = display;
+                    var fin = setInterval(function () {
+                        if (next.style.opacity < 1)
+                            next.style.opacity = parseFloat(next.style.opacity) + step;
+                        else
+                            clearInterval(fin);
+                    }, interval);
+                }
+            }, interval);
+        }
+    }
+})();
+
+
 String.prototype.insertAt = function(string, index) {   
     return this.substring(0, index) + string + this.substring(index);
 }
