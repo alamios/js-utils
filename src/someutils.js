@@ -478,18 +478,21 @@ var dateutils = (function() {
 var uiutils = (function() {
     return {
 
-        fadeIn: function(elem, interval, step, display="block") {
+        fadeIn: function(elem, interval, step, callback, display="block") {
             elem.style.opacity = '0';
             elem.style.display = display;
             var fin = setInterval(function () {
                 if (elem.style.opacity < 1)
                     elem.style.opacity = parseFloat(elem.style.opacity) + step;
-                else
+                else {
                     clearInterval(fin);
+                    if (callback)
+                        callback();
+                }
             }, interval);
         },
         
-        fadeOut: function(elem, interval, step) {
+        fadeOut: function(elem, interval, step, callback) {
             elem.style.opacity = '1';
             var fout = setInterval(function () {
                 if (parseFloat(elem.style.opacity) > 0)
@@ -497,11 +500,13 @@ var uiutils = (function() {
                 else {
                     clearInterval(fout);
                     elem.style.display = "none";
+                    if (callback)
+                        callback();
                 }
             }, interval);
         },
 
-        fade: function(prev, next, interval, step, display="block") {
+        fade: function(prev, next, interval, step, callback, display="block") {
             prev.style.opacity = '1';
             var fout = setInterval(function () {
                 if (parseFloat(prev.style.opacity) > 0)
@@ -514,8 +519,11 @@ var uiutils = (function() {
                     var fin = setInterval(function () {
                         if (next.style.opacity < 1)
                             next.style.opacity = parseFloat(next.style.opacity) + step;
-                        else
+                        else {
                             clearInterval(fin);
+                            if (callback)
+                                callback();
+                        }
                     }, interval);
                 }
             }, interval);
